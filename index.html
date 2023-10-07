@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Form</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+     <script>
+          function sendData(){
+               console.log(document.getElementById('username').value)
+               console.log(document.getElementById('password').value)
+
+               axios.post('http://localhost:3002/sendData', {
+               username: document.getElementById('username').value, 
+               password: document.getElementById('password').value})
+               .then(res=>{
+                    window.location = './redirect.html';
+               })
+          }
+     </script>
+</head>
+<body>
+          <input type="text" id="username" placeholder="username" />
+          <input type="text" name="" id="password" placeholder="password">
+          <button onclick="sendData()">Send data</button>
+</body>
+</html>
